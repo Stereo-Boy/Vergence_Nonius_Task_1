@@ -7,6 +7,7 @@ try
     [vgnpath,~]=fileparts(mfilename('fullpath')); %path to vergence nonius folder
     datapath = fullfile(vgnpath,'dataFiles');
     addpath(fullfile(vgnpath,'functions'))
+    addpath(fullfile(vgnpath,'screen'))
     cd(vgnpath)
 
     %==========================================================================
