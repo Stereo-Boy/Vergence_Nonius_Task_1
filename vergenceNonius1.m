@@ -1,4 +1,4 @@
-function vergenceNonius1
+function vergenceNonius1(parameters)
 
 
 try
@@ -17,12 +17,12 @@ try
             %1: User  ; 2: Robot 
             %The robot mode allows to test the experiment with no user awaitings
             %or long graphical outputs, just to test for obvious bugs
-            inputMode=1; 
+            inputMode=2; 
             %==================== QUICK MODE ==============================
             %1: ON  ; 2: OFF 
             %The quick mode allows to skip all the input part at the beginning of
             %the experiment to test faster for what the experiment is.
-            quickMode=1; 
+            quickMode=2; 
             %==================== DISPLAY MODE ==============================
             %1: ON  ; 2: OFF 
             %In Display mode, some chosen variables are displayed on the screen
@@ -31,7 +31,7 @@ try
             
             %----- mode related stuff ---%
             if quickMode==2
-                name=nameInput;
+                name=nameInput(datapath);
                 language=input('Language (fr for french; en for english):  ', 's');
             else
                 name='default';
@@ -40,12 +40,6 @@ try
 
     %=========  STARTERS =================================================== %
     %Initialize and load experiment settings (window and stimulus)
-    
-        %first check is file exists for that name
-            
-        %if file exist but its default, delete and start afresh          
-  
-
                [expe,scr,stim,sounds]=globalParametersVNT1; 
                 if exist('parameters','var')
                     stim.stoppingRevNb=parameters(1);
@@ -81,7 +75,7 @@ try
               disp('VERGENCE TEST')
               stim.escapeTimeLimit=100;
               save('temp.mat')  
-              [respVergence, expe, stairs]=vergenceTestRoADV2();              
+              [respVergence, expe, lastBreakTime,stairs]=vergenceTestRoADV2();              
               disp(['Duration:',num2str((GetSecs-startTime)/60)]);
               expe.vergenceTime(end+1)=(GetSecs-startTime)/60;
               save(fullfile(datapath,name))

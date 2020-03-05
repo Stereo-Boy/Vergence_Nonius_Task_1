@@ -11,9 +11,9 @@ if nbArg>0
     for i=1:nbArg
             string=[string,num2str(varargin{i})];
     end
-    error(string)
+    error(string);
 else
-        error('No arguments provided to erri for display...')
+        error('No arguments provided to erri for display...');
 end
 
 end

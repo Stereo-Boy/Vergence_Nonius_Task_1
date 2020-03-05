@@ -34,9 +34,9 @@ function dispi(varargin)
 % Created by Adrien Chopin, nov 2016
 
 % check for verboseOFF
-if any(strcmpi(varargin,'verboseOFF')), return; end;
+if any(strcmpi(varargin,'verboseOFF')), return; end
 % check for line length
-if any(strcmpi(varargin,'line length')), 
+if any(strcmpi(varargin,'line length'))
     idx = find(strcmpi(varargin,'line length')); 
     lineLength = varargin{idx+1}; varargin(idx:idx+1)=[];
 else % default no line length
@@ -47,7 +47,7 @@ end
 varargin(strcmpi(varargin,'verboseON')) = [];
 
 if ~ischar(varargin{1}) %if we deal if just one number or matrix (usually when we have a single input), let the beauty of the disp function happen
-    disp(varargin{1})
+    disp(varargin{1});
 else %otherwise, let's build a string from the inputs and disp it
     % for each argument, display
     string = [];
@@ -57,10 +57,10 @@ else %otherwise, let's build a string from the inputs and disp it
     end
 
     % if no line length, fprintf
-    if isempty(lineLength),
+    if isempty(lineLength)
         disp(string);
     else % display string using cleanDisp
-        cleanDisp(string,lineLength)
+        cleanDisp(string,lineLength);
     end
 end
 end
@@ -69,7 +69,7 @@ function cleanDisp(text,len)
 %disp a text cleanly on the command window with return to line at the end
 %of the screen (len characters)
 
-for x = 1:len:numel(text),
+for x = 1:len:numel(text)
     % print text of length len line by line
     disp(text(x:min(x+len-1, end)));
 end

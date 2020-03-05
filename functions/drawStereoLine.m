@@ -22,10 +22,8 @@ function drawStereoLine(w, positionXL,positionXR, positionYL, positionYR,xL, xR,
 % Function created in june 2013 - adrien chopin 
 %--------------------------------------------------------------------------
 if ~exist('check','var'); check=0; end
-if check==0; 
+if check==0
     disp('Check is set to 0 in drrawStereoLine: are you sure that you did not round the disparity values in px transmitted here? Because if it is the case, what is the point of having subpixel precision then? Check all your conversion functions and attribute 1 to this check parameter then.');
-   % sca
-  %  xxx
 end
 if ~exist('zero','var'); zero=0; end
 % %first, convert the decimal part of the centers into deviation

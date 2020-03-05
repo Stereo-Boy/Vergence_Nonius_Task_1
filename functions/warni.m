@@ -13,16 +13,16 @@ if nbArg>0
     for i=1:nbArg
         if strcmpi(varargin{i},'verboseOFF')
           % warning(' ')
-           return 
+           return; 
         elseif strcmpi(varargin{i},'verboseON')
             %do nothing
         else
             string=[string,num2str(varargin{i})];
         end
     end
-    warning(string)
+    warning(string);
 else
-        warning('No arguments provided to warni for display...')
+        warning('No arguments provided to warni for display...');
 end
 
 end
