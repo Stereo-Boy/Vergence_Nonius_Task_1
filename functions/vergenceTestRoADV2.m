@@ -211,8 +211,7 @@ function [converging,values,dataResp,valueClasses,lvlClasses,thres,threslvl,thre
       %--------------------------------------------------------------------------
       %   STIM - RESP LOOP - get rid of that
       %--------------------------------------------------------------------------  
-      % === UPDATE HERE (to adapt to new protocol) ** ===%
-           upRightOffset=randsample([-1,1],1); %1 for upper right offset -1 for upper left 
+           upRightOffset=randsample([-1,1],1); %1 for upper rightward offset -1 for upper leftward offset 
  
         %decide whether upper line is in left eye (-1) or in right eye (1)
            upFactor=randsample([1,-1],1); %
@@ -412,9 +411,10 @@ function [expe, lastBreakTime, resp, stuff2save, beginInterTrial, stim]=stimAndR
        %cond => 1 for fixation/no mask1 and 2 for 'no fixation'/mask1
         
        %leftFactor=randsample([-1,1],1); %for eccentricity: -1 is left, 1 is right
-       offset=upRightOffset*currentValue/2; %in arcmin - positive means upper is right
-       %so upRightOffset = 1 for upper right offset -1 for upper left 
-       offsetPx=(offset./60).*scr.VA2pxConstant; %in px, value
+       offset=upRightOffset*currentValue/2; %offset for upper line, in arcmin - positive values means upper offset is rightward
+       % Note that we apply half of the offset to the upper line, half to the lower
+       % So upRightOffset = 1 for upper line rightward offset and -1 for upper leftward offset
+       offsetPx=(offset./60).*scr.VA2pxConstant; % in px
        jitter=round(((rand(1).*stim.jitterRange)-stim.jitterRange/2)); 
        masks=nan(stim.frameSize,stim.frameSize,2);
 
@@ -529,18 +529,18 @@ function [expe, lastBreakTime, resp, stuff2save, beginInterTrial, stim]=stimAndR
              Screen('FillRect', scr.w, sc(scr.backgr,scr.box));
 
         %--------------------------------------------------------------------------
-        %   DISPLAY STIMULUS
+        %   DISPLAY STIMULUS - NONIUS LINEs
         %--------------------------------------------------------------------------
           if upFactor==-1 
             %upper line in left eye
-            drawStereoLine(scr.w, scr.LcenterXLine+jitter, 0,  scr.centerYLine-stim.vertEcc, 0,offsetPx,0,stim.lineLum, stim.lineSize, scr.box,scr.backgr);             
+            drawStereoLine(scr.w, scr.LcenterXLine+jitter, 0,  scr.centerYLine-stim.vertEcc, 0,offsetPx,0,stim.lineLum, stim.lineSize, scr.box,scr.backgr,1);             
             %lower line in right eye
-            drawStereoLine(scr.w, 0, scr.RcenterXLine+jitter,   0, scr.centerYLine+stim.vertEcc,0,-offsetPx,stim.lineLum, stim.lineSize, scr.box,scr.backgr);   
+            drawStereoLine(scr.w, 0, scr.RcenterXLine+jitter,   0, scr.centerYLine+stim.vertEcc,0,-offsetPx,stim.lineLum, stim.lineSize, scr.box,scr.backgr,1);   
           else
               %upper line in right eye
-            drawStereoLine(scr.w, scr.RcenterXLine+jitter, 0, scr.centerYLine-stim.vertEcc, 0,offsetPx,0,stim.lineLum, stim.lineSize, scr.box,scr.backgr);             
+            drawStereoLine(scr.w, scr.RcenterXLine+jitter, 0, scr.centerYLine-stim.vertEcc, 0,offsetPx,0,stim.lineLum, stim.lineSize, scr.box,scr.backgr,1);             
             %lower line in left eye
-            drawStereoLine(scr.w, 0, scr.LcenterXLine+jitter, 0, scr.centerYLine+stim.vertEcc,0,-offsetPx,stim.lineLum, stim.lineSize, scr.box,scr.backgr); 
+            drawStereoLine(scr.w, 0, scr.LcenterXLine+jitter, 0, scr.centerYLine+stim.vertEcc,0,-offsetPx,stim.lineLum, stim.lineSize, scr.box,scr.backgr,1); 
           end
             
 %         %--------------------------------------------------------------------------
@@ -583,7 +583,7 @@ function [expe, lastBreakTime, resp, stuff2save, beginInterTrial, stim]=stimAndR
         %   GET RESPONSE
         %--------------------------------------------------------------------------
           % [dummy offsetMask2]=flip(inputMode, scr.w,offsetStim+stim.mask2Duration/1000);
-           [responseKey, RT]=getResponseKb(scr.keyboardNum,0,inputMode,allowR,'robotModeRoADvTestV2',[offset stim.robotThr/0.95 upFactor]);
+           [responseKey, RT]=getResponseKb(scr.keyboardNum,0,inputMode,allowR,'robotModeRoADvTestV2',[offset stim.robotThr/0.95 stim.robotBias upFactor]);
 
            if responseKey==4 
                disp('Voluntary Interruption')
