@@ -5,7 +5,7 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
     
     %set the randomness random
     try rng('shuffle'); catch; rand('twister', sum(100*clock)); end
-    Screen('Preference', 'SkipSyncTests', 2); % HERE CHANGE TO 0!!!
+    Screen('Preference', 'SkipSyncTests', 0); % HERE CHANGE TO 0!!!
 
     %======================================================================
     %              WINDOW-SCREEN PARAMETERS 

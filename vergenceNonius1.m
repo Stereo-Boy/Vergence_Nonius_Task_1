@@ -8,6 +8,7 @@ try
     expe.datapath = fullfile(expe.vntpath,'dataFiles');
     addpath(fullfile(expe.vntpath,'functions'))
     addpath(fullfile(expe.vntpath,'screen'))
+    addpath(fullfile(expe.vntpath,'analysis'))
     cd(expe.vntpath)
     expe.DSTpath = fullfile(fileparts(expe.vntpath),'DST8','dataFiles'); % dst datafile path
 
@@ -169,7 +170,9 @@ try
         
         %===== QUIT =====%
         precautions(scr.w, 'off');
-
+       
+        % PLOT ANALYSIS
+        plotVergenceTestV2(fullfile(expe.datapath,name))
 
 catch err   %===== DEBUGING =====%
     sca
