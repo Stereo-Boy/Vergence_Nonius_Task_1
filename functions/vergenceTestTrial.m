@@ -77,7 +77,7 @@ function [expe, stuff2save, stim]=stimAndRegistrate(trial,currentValue, scr, sti
             masks(:,:,2)=sc(stim.maskLum.*rand(stim.frameWidth,stim.frameHeight),scr.box);
             text1 = Screen('MakeTexture', scr.w, masks(:,:,1));
             text2 = Screen('MakeTexture', scr.w, masks(:,:,2));
-            clear masks             
+            clear masks;             
             feuRouge(expe.beginInterTrial+stim.interTrial/1000,expe.inputMode);
             
         %--------------------------------------------------------------------------
@@ -86,8 +86,6 @@ function [expe, stuff2save, stim]=stimAndRegistrate(trial,currentValue, scr, sti
             %---- background
             Screen('FillRect', scr.w, sc(scr.backgr,scr.box));
             % ------ Outside frames   
-            stim.leftFrameLum
-            stim.rightFrameLum
             Screen('FrameRect', scr.w, sc(stim.leftFrameLum,scr.box),stim.frameL, stim.frameLineWidth/2);
             Screen('FrameRect', scr.w, sc(stim.rightFrameLum,scr.box),stim.frameR, stim.frameLineWidth/2);
              
@@ -179,7 +177,7 @@ function [expe, stuff2save, stim]=stimAndRegistrate(trial,currentValue, scr, sti
            [responseKey, RT]=getResponseKb(scr.keyboardNum,0,expe.inputMode,allowR,'robotModeRoADvTestV2',[offset stim.robotThr stim.robotBias upper_line_eye]);
 
            if responseKey==4 
-               disp('Voluntary Interruption')
+               disp('Voluntary Interruption');
                stim.stopSignal = 1;
            end
 

@@ -5,13 +5,16 @@ try
 
     clc
     [expe.vntpath,~]=fileparts(mfilename('fullpath')); %path to vergence nonius folder
-    expe.datapath = fullfile(expe.vntpath,'dataFiles');
     addpath(fullfile(expe.vntpath,'functions'))
+    expe.logpath = fullfile(expe.vntpath,'log'); % log file path
+    diary(fullfile(expe.logpath,[sprintf('%02.f_',fix(clock)),'_vnt1.txt']));
+    diary ON
+    expe.datapath = fullfile(expe.vntpath,'dataFiles');
     addpath(fullfile(expe.vntpath,'screen'))
     addpath(fullfile(expe.vntpath,'analysis'))
     cd(expe.vntpath)
     expe.DSTpath = fullfile(fileparts(expe.vntpath),'DST8','dataFiles'); % dst datafile path
-
+    
     %==========================================================================
     %                           QUICK PARAMETERS
     %==========================================================================
@@ -179,8 +182,7 @@ catch err   %===== DEBUGING =====%
     keyboard
     if exist('scr','var'); precautions(scr.w, 'off'); end
     disp(err)
-    save(fullfile(expe.datapath,[name,'-crashlog']))
-    saveAll([name,'-crashlog.mat'],[name,'-crashlog.txt'])
+    if exist('expe','var')&&exist('name','var'); save(fullfile(expe.logpath,[name,'-crashlog'])); end
     rethrow(err);
 end
 %============================================================================

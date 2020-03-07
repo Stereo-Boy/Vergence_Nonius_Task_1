@@ -1,0 +1,161 @@
+changeResolution: We will do nothing because the current resolution is already at 1920x1080
+and the current refresh rate is already 60hz
+[Warning: Change the screen resolution to have equal pixel sizes.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('globalParametersVNT1', 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\functions\globalParametersVNT1.m', 24)" style="font-weight:bold">globalParametersVNT1</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\functions\globalParametersVNT1.m',24,0)">line 24</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('vergenceNonius1', 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\vergenceNonius1.m', 53)" style="font-weight:bold">vergenceNonius1</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\vergenceNonius1.m',53,0)">line 53</a>)] 
+
+
+PTB-INFO: This is Psychtoolbox-3 for Microsoft Windows, under Matlab 64-Bit (Version 3.0.16 - Build date: Aug  7 2019).
+PTB-INFO: OS support status: Windows 10 (Version 10.0) supported and tested to some limited degree.
+PTB-INFO: Type 'PsychtoolboxVersion' for more detailed version information.
+PTB-INFO: Most parts of the Psychtoolbox distribution are licensed to you under terms of the MIT License, with
+PTB-INFO: some restrictions. See file 'License.txt' in the Psychtoolbox root folder for the exact licensing conditions.
+
+PTB-INFO: The detected endline of the vertical blank interval is equal or lower than the startline. This indicates
+PTB-INFO: that i couldn't detect the duration of the vertical blank interval and won't be able to correct timestamps
+PTB-INFO: for it. This will introduce a very small and constant offset (typically << 1 msec). Read 'help BeampositionQueries'
+PTB-INFO: for how to correct this, should you really require that last few microseconds of precision.
+PTB-INFO: Btw. this can also mean that your systems beamposition queries are slightly broken. It may help timing precision to
+PTB-INFO: enable the beamposition workaround, as explained in 'help ConserveVRAMSettings', section 'kPsychUseBeampositionQueryWorkaround'.
+
+
+PTB-INFO: OpenGL-Renderer is Intel :: Intel(R) UHD Graphics 620 :: 4.6.0 - Build 26.20.100.7262
+PTB-INFO: VBL startline = 1080 , VBL Endline = 1080
+PTB-INFO: Measured monitor refresh interval from beamposition = 16.664110 ms [60.009205 Hz].
+PTB-INFO: Will use beamposition query for accurate Flip time stamping.
+PTB-INFO: Measured monitor refresh interval from VBLsync = 16.666296 ms [60.001334 Hz]. (50 valid samples taken, stddev=0.179888 ms.)
+PTB-INFO: Reported monitor refresh interval from operating system = 16.666667 ms [60.000000 Hz].
+PTB-INFO: Small deviations between reported values are normal and no reason to worry.
+PTB-INFO: ==============================================================================================================================
+PTB-INFO: WINDOWS DWM DESKTOP COMPOSITOR IS ACTIVE. On this Windows-10 or later system, Psychtoolbox can no longer reliably detect if
+PTB-INFO: this will cause trouble for timing and integrity of visual stimuli or not. You might be just fine, or you could be in trouble.
+PTB-INFO: Use external measurement equipment and independent procedures to verify reliability of timing if you care about proper timing.
+PTB-INFO: ==============================================================================================================================
+                  W: 540
+                  H: 320
+       goalWidthRes: 1920
+      goalHeightRes: 1080
+    goalRefreshRate: 60
+     distFromScreen: 150
+           viewpixx: 0
+        paramOptim1: 0.0062
+        paramOptim2: 1.7274
+       screenNumber: 2
+                box: [0.0062 1.7274]
+      oldResolution: [1×1 struct]
+      newResolution: [1×1 struct]
+          pixelSize: 32
+                res: [0 0 1920 1080]
+             ppBymm: 3.5556
+      VA2pxConstant: 93.0937
+             backgr: 0
+          fontColor: 10
+        keyboardNum: -1
+                  w: 10
+           fontSize: 18
+            centerX: 960
+            centerY: 540
+           frameSep: 135
+    stereoDeviation: 480
+           LcenterX: 480
+           RcenterX: 1440
+       LcenterXLine: 480
+       RcenterXLine: 1440
+        centerYLine: 540
+        LcenterXDot: 480
+        RcenterXDot: 1440
+         centerYDot: 540
+
+               lineLum: 20
+               nbLines: 3
+           lineSizeMin: 20
+       eccentricityMin: 15
+            vertEccMin: 14
+        jitterRangeMin: 30
+             noniusLum: 20
+     noniusLineSizeMin: 20
+    noniusLineWidthSec: 60
+       noniusOffsetMin: 5
+       fixationSizeSec: 90
+               maskLum: 10
+              nbValues: 5
+       escapeTimeLimit: 10
+             maxAcuity: 0.0833
+             minAcuity: 2.2500
+          frameWidthVA: 7.1000
+         frameHeightVA: 8
+      frameLineWidthVA: 0.2000
+              robotThr: 1.6667
+             robotBias: -8.3333
+              lineSize: 31
+        noniusLineSize: 31
+       noniusLineWidth: 2
+          eccentricity: 23
+               vertEcc: 22
+          noniusOffset: 8
+          fixationSize: 2
+           jitterRange: 47
+        frameLineWidth: 19
+            frameWidth: 664
+           frameHeight: 750
+         mask1Duration: 5
+          itemDuration: 200
+         mask2Duration: 0
+            interTrial: 200
+
+    success: [1×1 struct]
+       fail: [1×1 struct]
+
+                 vntpath: 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1'
+                 logpath: 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\log'
+                datapath: 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\Vergence_Nonius_Task_1\dataFiles'
+                 DSTpath: 'C:\Users\Adrian\Google Drive\recherches partiel\2018_12_VRS_Virtual_Reality_Stereo\DST8\dataFiles'
+                 nameDST: 'default'
+                language: 'fr'
+                    name: 'VNT1 - Vergence Nonius Task v1'
+                 verbose: 'verboseON'
+                    time: []
+            vergenceTime: []
+                    date: {}
+                  breaks: []
+               breakTime: 10
+           instrPosition: [0 300 400 1100]
+        addInstructions1: [1×1 struct]
+    instructionsVergence: [1×1 struct]
+               breaktime: [1×1 struct]
+                     thx: [1×1 struct]
+
+PTB-INFO: New audio device -1 with handle 13 opened as PortAudio stream:
+PTB-INFO: For 2 channels Playback: Audio subsystem is MME, Audio device name is Speakers/Headphones (Realtek(R)
+PTB-INFO: Real samplerate 11025.000000 Hz. Input latency 0.000000 msecs, Output latency 182.857143 msecs.
+      freq1: 11025
+    success: [2×5773 double]
+    handle1: 13
+
+Loading DST file default
+VNT1 - Vergence Nonius Task v1
+VERGENCE TEST
+Trial 1
+
+ans =
+
+   29.4000
+
+
+ans =
+
+   29.4000
+
+
+
+PTB-ERROR: Screen('Flip'); beamposition timestamping computed an *impossible stimulus onset value* of 371306.592792 secs, which would indicate that
+PTB-ERROR: stimulus onset happened *before* it was actually requested! (Earliest theoretically possible 371306.599177 secs).
+
+PTB-ERROR: Some more diagnostic values (only for experts): rawTimestamp = 371306.602652, scanline = 638
+PTB-ERROR: Some more diagnostic values (only for experts): line_pre_swaprequest = 404, line_post_swaprequest = 414, time_post_swaprequest = 371306.599327
+PTB-ERROR: Some more diagnostic values (only for experts): preflip_vblcount = 0, preflip_vbltimestamp = -1.000000
+PTB-ERROR: Some more diagnostic values (only for experts): postflip_vblcount = 0, postflip_vbltimestamp = -1.000000, vbltimestampquery_retrycount = 0
+
+PTB-ERROR: This error can be due to either of the following causes:
+PTB-ERROR: Very unlikely: Something is broken in your systems beamposition timestamping. I've disabled high precision
+PTB-ERROR: timestampi
