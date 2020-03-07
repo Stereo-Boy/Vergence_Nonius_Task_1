@@ -1,4 +1,4 @@
-function [expe,scr,stim,sounds]=globalParametersVNT1
+function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalParametersVNT1(expe)
 %======================================================================
 %  Goal: control panel for the expriment parameters
 %======================================================================
@@ -38,29 +38,21 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
         %On a viewPixx, screen originates at [1,0] for DrawLine and [0,1]
         %for DrawDots
           scr.centerX = scr.res(3)/2;
-          scr.centerY = scr.res(4)/2-150;
+          scr.centerY = scr.res(4)/2;
           scr.frameSep = scr.W/4;
-          scr.stereoDeviation = scr.ppBymm.*scr.frameSep; %nb of px necessary to add from screen center in order to put a stim a zero disp 
-           
+          scr.stereoDeviation = scr.ppBymm.*scr.frameSep; %nb of px necessary to add from screen center in order to put a stim a zero disp          
            scr.LcenterX=round(scr.centerX-scr.stereoDeviation);
            scr.RcenterX=round(scr.centerX+scr.stereoDeviation);
            scr.centerY=round(scr.centerY);
            
-%            scr.LcenterXLine=         round(scr.centerX-scr.stereoDeviation);
-%            scr.RcenterXLine=         round(scr.centerX+scr.stereoDeviation);
-%            scr.centerYLine=          round(scr.centerY);
-%            scr.LcenterXDot=         round(scr.centerX-scr.stereoDeviation);
-%            scr.RcenterXDot=         round(scr.centerX+scr.stereoDeviation);
-%            scr.centerYDot=          round(scr.centerY);
-           
           %Centers for Drawline
-            scr.LcenterXLine=round(scr.centerX-scr.stereoDeviation+1); %stereo position of left eye center
-            scr.RcenterXLine=round(scr.centerX+scr.stereoDeviation+1); %stereo position of right eye center
+            scr.LcenterXLine=round(scr.centerX-scr.stereoDeviation); %stereo position of left eye center
+            scr.RcenterXLine=round(scr.centerX+scr.stereoDeviation); %stereo position of right eye center
             scr.centerYLine=round(scr.centerY); %stereo position of left eye center
           %Centers for Drawdots
             scr.LcenterXDot=round(scr.centerX-scr.stereoDeviation); %stereo position of left eye center
             scr.RcenterXDot=round(scr.centerX+scr.stereoDeviation); %stereo position of right eye center
-            scr.centerYDot=round(scr.centerY+1); %stereo position of left eye center
+            scr.centerYDot=round(scr.centerY); %stereo position of left eye center
                        
         %    scr.savepath=strcat(paths(15),'Experiment',filesep,'dataFiles');
     %     scr.frameTime =Screen('GetFlipInterval', scr.onScreen, 10);
@@ -101,13 +93,19 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
             %stim.contrast=50/100;
 
         %frames properties
-            stim.frameInVA=2; %size of the inside frame for the frame of squares in deg
-            stim.frameWidth=60; %width of the frames in px
-            stim.squareS=20; %size of a square in a frame in px
-            stim.frameLum=3; %its luminance
-
+            %stim.frameInVA=2; %size of the inside frame for the frame of squares in deg
+            %stim.frameWidth=60; %width of the frames in px
+            %stim.squareS=20; %size of a square in a frame in px
+            %stim.frameLum=3; %its luminance
+            stim.frameWidthVA = 7.1; % witdth of the outside frame in deg
+            stim.frameHeightVA = 8;
+            stim.frameLineWidthVA=0.2; %line width of the frames in VA
+         
+            stim.robotThr=100/60; %threshold simulated for vergence (robot)
+            stim.robotBias = -500/60; %bias simulated for vergence (robot)
+            
         %conversions in pixels
-            stim.frameSize = round(convertVA2px(stim.frameInVA));
+           % stim.frameSize = round(convertVA2px(stim.frameInVA));
             stim.lineSize=round(convertVA2px(stim.lineSizeMin/60)); %in px
             stim.noniusLineSize=round(convertVA2px(stim.noniusLineSizeMin/60)); %in px
             stim.noniusLineWidth=round(convertVA2px(stim.noniusLineWidthSec/3600)); %in px
@@ -116,6 +114,9 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
             stim.noniusOffset=round(convertVA2px(stim.noniusOffsetMin/60));
             stim.fixationSize=round(convertVA2px(stim.fixationSizeSec/3600));
             stim.jitterRange=round(convertVA2px(stim.jitterRangeMin/60));
+            stim.frameLineWidth = round(convertVA2px(stim.frameLineWidthVA));
+            stim.frameWidth = round(convertVA2px(stim.frameWidthVA));
+            stim.frameHeight = round(convertVA2px(stim.frameHeightVA));
             
        %correct luminance for number of pixel width
        %stim.noniusLum=stim.noniusLumDesired/stim.noniusLineWidth;
@@ -124,18 +125,21 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
        % stim.colorFixation=20;
         
         %staircase parameters
-            stim.iniValues=[70/60, 280/60, 490/60, 700/60]; %in arcmin
-            stim.maxStepNb = 160;         % maximum number of steps for each staircase
-            stim.max=20; %maximum value in arcmin 
-            stim.robotThr=1/60; %threshold simulated for vergence (robot)
-            stim.robotBias = -200/60; %bias simulated for vergence (robot)
-            stim.maxInitialStepSize= 270/60;%in arcmin (ASA) - 1.5 logUnit
-            stim.stoppingStep = 61/60;      % stopping criterion in arcmin (ASA) - 0.01 logUnit
-            stim.desiredThreshold = 0.75; % desired threshold (ASA)
-             
-            stim.stepSize= 73/60; %in arcmin (1up/2down) =>approx 0.2 logUnit
-            stim.stoppingRevNb = 30;      % number of rev before stopping (1up/2down)
-            stim.excludedValues=0; %number of first measured values that are excluded of last psychom function
+            stairs1.trial = 1; % first trial initialization
+            stairs1.initial_value = 200/60; %in arcmin 70 280 490 700
+            stairs1.desired_threshold = 0.50;
+            stairs1.maxInitialStepSize = 270/60; %in arcmin (ASA) - 1.5 logUnit
+            %stairs1.stoppingStep = 61/60;      % stopping criterion in arcmin (ASA) - 0.01 logUnit       
+            stairs1.maxStepNb = 60;         % maximum number of steps for each staircase
+            stairs1.max=3000/60; %maximum value in arcmin          
+            %stairs1.stepSize= 73/60; %in arcmin (1up/2down) =>approx 0.2 logUnit
+            %stairs1.stoppingRevNb = 30;      % number of rev before stopping (1up/2down)
+            %stairs1.excludedValues=0; %number of first measured values that are excluded of last psychom function
+            
+            stairs2 = stairs1;
+            stairs2.initial_value = -200/60;
+            stairs3 = stairs1;
+            stairs4 = stairs2;
     %--------------------------------------------------------------------------
 
     %SPECIAL VIEWPIXX
@@ -173,6 +177,7 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
     %         EXPERIENCE PARAMETERS
     %--------------------------------------------------------------------------
         expe.name='VNT1 - Vergence Nonius Task v1';
+        expe.verbose = 'verboseON';
         expe.time=[]; %durations of the sessions in min
         expe.vergenceTime=[]; %duration of vergence test
         expe.date={}; %dates of the sessions
@@ -181,18 +186,19 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
         expe.instrPosition=[0,300,400,1100];
         expe.addInstructions1.fr= strcat('ENTRAINEMENT');
         expe.addInstructions1.en= 'TRAINING';
+        expe.language = 'fr';
         expe.instructionsVergence.en=strcat('V TEST: You will be displayed couples of lines.',...
             ' Each trial begins with the presentation', ...
             ' of small squares. In the centre are displayed two half crosses. Each half cross is visible in one eye only.',...
             ' Goal is first to assembly a complete cross. When reached, press any key to start the trial.',...
-            ' Half crosses disappear, a mask appears briefly followed by two lines, one above the other, and then followed by another mask.',...
+            ' Half crosses disappear, a mask appears briefly followed by two lines, one above the other.',...
             ' Task is to judge the offset of the upper line in comparison to the lower one.',...
             ' Answer pressing (left arrow) if the upper line is leftward relative to the lower and (right arrow) otherwise.',...
             ' Press any key to begin.'); 
         expe.instructionsVergence.fr=strcat('TEST V: des lignes vont vous etre presentees. Chaque essai commence avec la presentation',...
             ' de petits carres. Au centre se trouveront deux demi-croix. Chaque croix n''etant visible que dans un oeil, votre premiere',...
             ' tache sera de former une croix complete. Une fois reussi, appuyez sur une touche pour lancer l''essai.',...
-            ' Les demi-croix sont remplacees par un masque bref, suivi de deux lignes, l''une au dessus de l''autre, puis d un dernier masque.',...
+            ' Les demi-croix sont remplacees par un masque bref, suivi de deux lignes, l''une au dessus de l''autre.',...
             ' Un point de fixation peut etre present ou non. Votre tache est de juger si le decallage de la ligne du haut est plutot sur la',...
             ' gauche ou plutot sur la droite, comparee a la ligne du bas. Repondez en appuyant sur (fleche gauche) si la ligne du haut est',...
             ' plus a gauche et (fleche droite) sinon. Appuyez sur n''importe quelle touche pour commencer.');
@@ -201,14 +207,25 @@ function [expe,scr,stim,sounds]=globalParametersVNT1
         expe.thx.fr='===========  MERCI  ===========';
         expe.thx.en='===========  THANK YOU  ===========';
         disp(expe)
+        
+            %--------------------------------------------------------------------------
+    %         sounds PARAMETERS
+    %--------------------------------------------------------------------------
+        sounds = struct();
+        [wave1, sounds.freq1] = psychwavread(fullfile(fullfile(expe.vntpath,'functions'),'success.wav'));
+        sounds.success = wave1';
+        %[wave2, sounds.freq2] = psychwavread(fullfile(fullfile(expe.vntpath,'functions'),'fail.wav'));
+        %sounds.fail = wave2';
+        InitializePsychSound;
+        sounds.handle1 = PsychPortAudio('Open', [], [], 0, sounds.freq1, 2);
+        %sounds.handle2 = PsychPortAudio('Open', [], [], 0, sounds.freq2, 2);
+        PsychPortAudio('FillBuffer', sounds.handle1, sounds.success);
+        %PsychPortAudio('FillBuffer', sounds.handle2, sounds.fail);
+        disp(sounds)
     %--------------------------------------------------------------------------
     precautions(scr.w, 'on');
     
     function px=convertVA2px(VA)
         px=round(scr.ppBymm *10*VA2cm(VA,scr.distFromScreen)); 
-        %correct for when subpixel value is obtained
-        if px==0
-            px=ceil(scr.ppBymm *10*VA2cm(VA,scr.distFromScreen));
-        end
     end
 end

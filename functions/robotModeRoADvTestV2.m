@@ -13,12 +13,12 @@ function response=robotModeRoADvTestV2(robotprofil)
         errorRate=2/100;% here is the % of error
         offset = robotprofil(1);
         noise = robotprofil(2)./0.67;
-        bias = robotprofil(3)/2;
-        upFactor = robotprofil(4);
+        bias = robotprofil(3);
+        upper_line_eye = robotprofil(4);
         vergenceNoise = norminv(rand(1),bias,noise);
         %noise2=norminv(rand(1),0,robotprofil(2));
-        offsetUp = -upFactor.*vergenceNoise + offset;
-        offsetDown =  upFactor.*vergenceNoise - offset;
+        offsetUp = -upper_line_eye.*vergenceNoise/2 + offset;
+        offsetDown =  upper_line_eye.*vergenceNoise/2 - offset;
 
 %         noise1=norminv(rand(1),0,robotprofil(2));
 %         noise2=norminv(rand(1),0,robotprofil(2));
