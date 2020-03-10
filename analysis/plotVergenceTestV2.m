@@ -10,7 +10,7 @@ datapath = fullfile(vgnpath,'dataFiles');
 addpath(fullfile(vgnpath,'functions'))
 
 load(fullfile(datapath,[name,'.mat']))
-%dispi('Duration: ', expe.duration);
+dispi('Duration: ', expe.duration);
 close all;
 
 %plot staircases

@@ -158,4 +158,55 @@ PTB-ERROR: Some more diagnostic values (only for experts): postflip_vblcount = 0
 
 PTB-ERROR: This error can be due to either of the following causes:
 PTB-ERROR: Very unlikely: Something is broken in your systems beamposition timestamping. I've disabled high precision
-PTB-ERROR: timestampi
+PTB-ERROR: timestamping for now. Returned timestamps will be less robust and accurate.
+
+PTB-ERROR: The most likely cause would be that Synchronization of stimulus onset (buffer swap) to the
+PTB-ERROR: vertical blank interval VBL is not working properly, or swap completion signalling to PTB is broken.
+PTB-ERROR: Please run the script PerceptualVBLSyncTest to check this. With non-working sync to VBL, all stimulus timing
+PTB-ERROR: is futile. Also run OSXCompositorIdiocyTest on macOS. Also read 'help SyncTrouble' !
+Voluntary Interruption
+Duration:0.056929
+End of staircases, data saved
+if system_dependent('IsDebugMode')==1, dbquit; end
+30*75/100
+
+ans =
+
+   22.5000
+
+7000000000*0.1*0.08*0.75
+
+ans =
+
+    42000000
+
+7000000000*0.1*0.08
+
+ans =
+
+    56000000
+
+7200000000*0.1*0.08
+
+ans =
+
+    57600000
+
+7200000000*0.034*0.08
+
+ans =
+
+   1.9584e+07
+
+7200000000*0.1*0.034
+
+ans =
+
+    24480000
+
+7200000000*0.1*0.034*0.75
+
+ans =
+
+    18360000
+
