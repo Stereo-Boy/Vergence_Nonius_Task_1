@@ -126,7 +126,7 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
         
         %staircase parameters
             stairs1.trial = 1; % first trial initialization
-            stairs1.initial_value = 200/60; %in arcmin 70 280 490 700
+            stairs1.initial_value = 50/60; %in arcmin 70 280 490 700
             stairs1.desired_threshold = 0.50;
             stairs1.maxInitialStepSize = 270/60; %in arcmin (ASA) - 1.5 logUnit
             %stairs1.stoppingStep = 61/60;      % stopping criterion in arcmin (ASA) - 0.01 logUnit       
@@ -137,7 +137,7 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
             %stairs1.excludedValues=0; %number of first measured values that are excluded of last psychom function
             
             stairs2 = stairs1;
-            stairs2.initial_value = -200/60;
+            stairs2.initial_value = -50/60;
             stairs3 = stairs1;
             stairs4 = stairs2;
     %--------------------------------------------------------------------------
