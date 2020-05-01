@@ -83,7 +83,6 @@ try
          scr.RcenterYDot = scr.centerYDot - expe.rightUpShift;
 
             disp(expe.name)
-            expe.startTime=GetSecs;
             expe.date(end+1)={dateTime};
             expe.goalCounter=1140; 
       
@@ -137,6 +136,7 @@ try
         % stairs3 and stairs4 too but for the case that the upper line is in the LE
         
       % TRIAL LOOP
+      expe.startTime=GetSecs;
         for trial=1:numel(staircase_trial_list)
             if stim.stopSignal; break; end
             dispi('Trial ', trial, expe.verbose)

@@ -68,7 +68,8 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
             stim.nbLines=3; %nb of lines in a unresolved line stimulus NOT USED - always 3
             stim.lineSizeMin= 20; % in arcmin %20
             stim.eccentricityMin = 15; %eccentricity of the stim in arcmin
-            stim.vertEccMin= stim.lineSizeMin/2+ 4; %vertical eccentricity of the line in arcmin (distance between midscreen and middle of the line to draw)
+            stim.distBetwLines = 12; % distance between lines tips in arcmin
+            stim.vertEccMin= stim.lineSizeMin/2 + stim.distBetwLines/2; %vertical eccentricity of the line in arcmin (distance between midscreen and middle of the line to draw)
             stim.jitterRangeMin=30; %eccentricity jitter for lines, in min
             
         %Nonius
@@ -83,7 +84,7 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
         
         %General
             stim.nbValues=5;
-            stim.escapeTimeLimit=10; %(min) nb of min after which escape key is deactivated
+            stim.escapeTimeLimit=5; %(min) nb of min after which escape key is deactivated
             stim.maxAcuity=5/60; %maximal acuity to be tested in arcmin #NOT USED
             stim.minAcuity=135/60; %minimal acuity to be tested in arcmin; values will be [a-2min, a-min, a ,a+min, a+2min]
             % #CHANGE HERE - delete below
@@ -182,7 +183,7 @@ function [expe, scr, stim, sounds, stairs1, stairs2, stairs3, stairs4] = globalP
         expe.vergenceTime=[]; %duration of vergence test
         expe.date={}; %dates of the sessions
         expe.breaks=[]; %for each break, block, trial and duration of the break in sec
-        expe.breakTime=5;%time after which there is a small break, in min
+        expe.breakTime=10;%time after which there is a small break, in min
         expe.instrPosition=[0,300,400,1100];
         expe.addInstructions1.fr= strcat('ENTRAINEMENT');
         expe.addInstructions1.en= 'TRAINING';
