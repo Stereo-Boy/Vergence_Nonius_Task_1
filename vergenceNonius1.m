@@ -175,7 +175,7 @@ try
         precautions(scr.w, 'off');
        
         % PLOT ANALYSIS
-        plotVergenceTestV2(fullfile(expe.datapath,name))
+        plotVergenceTestV2(name)
 
 catch err   %===== DEBUGING =====%
     sca
