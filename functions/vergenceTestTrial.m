@@ -94,6 +94,8 @@ function [expe, stuff2save, stim]=stimAndRegistrate(trial,currentValue, scr, sti
              %--------------------------------------------------------------------------
                  %vertical lines
                   Screen('DrawLine', scr.w, sc(stim.noniusLum,scr.box), scr.LcenterXLine, scr.centerYLine+stim.noniusOffset ,  scr.LcenterXLine, scr.centerYLine+stim.noniusLineSize+stim.noniusOffset , stim.noniusLineWidth);   %Left eye up line
+                  Screen('DrawLine', scr.w, sc(stim.noniusLum,scr.box), scr.RcenterXLine, scr.centerYLine+stim.noniusOffset ,  scr.RcenterXLine, scr.centerYLine+stim.noniusLineSize+stim.noniusOffset , stim.noniusLineWidth);   %Right eye up line
+                  Screen('DrawLine', scr.w, sc(stim.noniusLum,scr.box), scr.LcenterXLine, scr.centerYLine-stim.noniusOffset,  scr.LcenterXLine, scr.centerYLine-stim.noniusLineSize-stim.noniusOffset , stim.noniusLineWidth);   %Left eye down line
                   Screen('DrawLine', scr.w, sc(stim.noniusLum,scr.box), scr.RcenterXLine, scr.centerYLine-stim.noniusOffset,  scr.RcenterXLine, scr.centerYLine-stim.noniusLineSize-stim.noniusOffset , stim.noniusLineWidth);   %right eye down line
                 %horizontal 
                   Screen('DrawLine', scr.w, sc(stim.noniusLum,scr.box), scr.LcenterXLine-round(stim.noniusLineSize/2), scr.centerYLine,  scr.LcenterXLine-stim.noniusOffset, scr.centerYLine , stim.noniusLineWidth);   %Left eye left horizontal line
