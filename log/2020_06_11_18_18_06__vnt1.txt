@@ -1,0 +1,10 @@
+changeResolution: attempting to change resolution of screen 0 to 1920x1080
+and the refresh rate to 60hz
+[Warning: That screen does not support that resolution/refresh rate: we keep the current resolution at 1366x768] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('changeResolution', 'C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\changeResolution.m', 40)" style="font-weight:bold">changeResolution</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\changeResolution.m',40,0)">line 40</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('globalParametersVNT1', 'C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\globalParametersVNT1.m', 19)" style="font-weight:bold">globalParametersVNT1</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\globalParametersVNT1.m',19,0)">line 19</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('vergenceNonius1', 'C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\vergenceNonius1.m', 53)" style="font-weight:bold">vergenceNonius1</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\vergenceNonius1.m',53,0)">line 53</a>)] 
+if system_dependent('IsDebugMode')==1, dbquit; end
+uiopen('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\vergenceNonius1.m',1)
+uiopen('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\vergenceTestTrial.m',1)
+uiopen('C:\Users\Adrian\Google Drive\recherches partiel\2020_VRS_test_retest\Vergence_Nonius_Task_1\functions\globalParametersVNT1.m',1)

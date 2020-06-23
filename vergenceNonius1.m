@@ -28,7 +28,7 @@ try
             %1: ON  ; 2: OFF 
             %The quick mode allows to skip all the input part at the beginning of
             %the experiment to test faster for what the experiment is.
-            quickMode=1; 
+            quickMode=2; 
             %==================== DISPLAY MODE ==============================
             %1: ON  ; 2: OFF 
             %In Display mode, some chosen variables are displayed on the screen
